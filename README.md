@@ -1,2 +1,2 @@
-# Mini-projeto---Agendamento-de-Aulas
-Mini projeto para agendamento de aulas
+# Mini-projeto - Agendamento-de-Aulas
+Projeto para realizar o agendamento de aulas
