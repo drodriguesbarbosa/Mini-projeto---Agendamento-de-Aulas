@@ -1,8 +1,10 @@
+from Aluno import Aluno
+from Professor import Professor
+
 class Aula(object):
 
-    def __init__(self, nomeAluno, nomeProfessor, horario):
-        self.nomeAluno = nomeAluno
-        self.nomeProfessor = nomeProfessor
+    def __init__(self, nome, horario):
+        self.nome = nome
         self.horario = horario
 
 aula1 = Aula('Pedro', 'Prof.João', '12/05/2022 10:00')
