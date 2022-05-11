@@ -1,16 +1,15 @@
-class Aluno:
+from Pessoa import Pessoa
+
+class Aluno(Pessoa):
 
     def __init__(self, nome, idade, grau_escolar):
-        self.nome = nome
-        self.idade = idade
+        super().__init__(nome, idade)
         self.grau_escolar = grau_escolar
 
-aluno1 = Aluno('Pedro', 18, 'Ensino médio completo')
-aluno2 = Aluno('Carla', 15, 'Ensino médio cursando')
-aluno3 = Aluno('Isa', 26, 'Ensino superior cursando')
+a1 = Aluno('Daniela', 28, 'superior')
+a2 = Aluno('Julia', 29, 'Pós Graduação')
+a3 = Aluno('Gabriel', 16, 'Ensino Médio')
 
-vetor_alunos = []
-vetor_alunos.append(aluno1)
-vetor_alunos.append(aluno2)
-vetor_alunos.append(aluno3)   
+print(a1.grau_escolar)
+
 

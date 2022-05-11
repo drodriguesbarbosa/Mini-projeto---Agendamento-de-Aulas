@@ -1,18 +1,14 @@
+from Pessoa import Pessoa
 
 class Professor (Pessoa):
 
-    def __init__(self, nome, especialidade, ativo):
+    def __init__(self, nome, idade, especialidade, ativo):
         super().__init__(nome, idade)
         self.especialidade = especialidade
         self.ativo = ativo
 
-professor1 = Professor('Prof. João', 'biologia', True)
-professor2 = Professor('Prof. josé', 'matemática', True)
-professor3 = Professor('Prof. Maria', 'português', True)
+p1 = Professor('Joao', 22, 'Farmacologia', True)
+p2 = Professor('Simone', 50, 'Homeopatia', False)
+p3 = Professor('Marcos', 54, 'Saúde Pública', True)
 
-vetor_professores = []
-vetor_professores.append(professor1)
-vetor_professores.append(professor2)
-vetor_professores.append(professor3)
-
-print(professor3.nome)
+print(p1.ativo)
