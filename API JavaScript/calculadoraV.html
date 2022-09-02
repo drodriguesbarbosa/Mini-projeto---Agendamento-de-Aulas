@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    
+    <title>Calculadora com Vue</title>
+  </head>
+  <body>
+
+    <div id="app"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+      new Vue({
+        el: '#app',
+        template:
+        `<div class = "container">
+            <h1>Calculadora</h1>
+            <hr />
+            <div class = "valores1e2">
+              <p>
+                <input placeholder="valor1" type="text" name="v1" class="calculando" v-model="valor1" /> 
+              </p>
+              <p>
+                <input placeholder="valor2" type="text" name="v2" class="calculando" v-model="valor2" /> 
+              </p>
+              <p>
+                <input placeholder="opcao" type="text" name="opcaoCalculo" class="calculando" v-model="opcao" />
+              </p>
+              <button v-on:click="opcoes" type="submit" class="btn btn-primary">calculo</button>
+              </div>
+              <p 
+              v-text ="resultado">Resultado
+              </p>
+          </div>`
+          ,
+          data() {
+            return {
+              numeros: [],
+              valor1: '',
+              valor2: '',
+              opcao: '',
+              resultado: ''
+
+            }
+          },
+
+          methods: {
+            opcoes() {
+              if (this.opcao.trim() == 'soma') {
+                this.resultado.trim() = "soma: " + (this.valor1 + this.valor2);
+              } 
+
+              if (this.opcao.trim() == 'subtracao') {
+                this.resultado.trim() = "subtração: " + (this.valor1-this.valor2);
+              }
+
+              if (this.opcao.trim() == 'multiplicar') {
+                this.resultado.trim() = "multiplicar: " + (this.valor1*this.valor2);
+              }
+
+              if (this.opcao.trim() == 'divide') {
+                this.resultado.trim() = "divide: " + (this.valor1/this.valor2);
+              }
+
+
+            }
+          }
+
+      })
+
+
+     
+
+    
+  
+ 
+
+    </script>  
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/6b3043e23a.js" crossorigin="anonymous"></script>
+    <script>
+    
+    
+
+        
+    </script>
+  </body>
+</html>

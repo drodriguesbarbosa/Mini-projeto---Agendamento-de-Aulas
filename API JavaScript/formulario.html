@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <title>Cadastro</title>
+    <style type="text/css"> 
+    input{background-color: pink;
+    }
+    #container{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;}
+    </style>
+  </head>
+  <body>
+
+    <!-- Inicio - ALTERAR A PARTIR DAQUI -->
+
+  <div id="container">
+    <h1>Cadastro</h1>
+    <input type="text" id="username" value= "username"/>
+    <p id="validarUsername">Username não pode conter espaços</p>
+    <input type="text" id="nome" value= "nome completo"/>
+    <p id="validarNome">Não pode conter caracteres especiais</p>
+    <input type="text" id="email" value="email@"/>
+    <p id="validarEmail">Email deve ser válido</p>
+    <input type="text" id="senha" value="senha"/>
+    <p id="validarSenha">Senha deve ter 8 caracteres</p>
+    <input type="text" id="confirmacao" value= "confirmação de senha"/>
+    <p id="validarConfirmacao">Deve ser igual a senha digitada</p>
+    <input type="text" id="dtNascimento" value="data de nascimento"/>
+    <p id="validarDtNascimento">teste</p>
+    <button onclick="validar()" id="botao">Validar dados</button>
+    <p id="resultado">validar</p>
+  </div>
+
+    
+    <!-- FIM - ALTERAR A PARTIR DAQUI -->
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/6b3043e23a.js" crossorigin="anonymous"></script>
+    <script>
+    
+      function validar(username, nome, email, senha, confirmacao, dtNascimento) {
+
+        //validando nome de usuario
+        var regex = /\s/;
+        var username = document.getElementById('username').value;
+        var textoValidacaoUsername = document.getElementById('validarUsername');
+
+        var testeUser = regex.test(username);
+
+        if (testeUser == true) {
+          textoValidacaoUsername.textContent="Username possui espaço";
+        }
+        else {
+          textoValidacaoUsername.textContent="Username válido!";
+        }
+
+        //validando nome completo
+        var regex = /\W|_/;
+        var nome = document.getElementById('nome').value;
+        var textoValidacaoNome = document.getElementById('validarNome');
+
+        var testeNome = regex.test(nome);
+
+        if (testeNome == false) {
+          textoValidacaoNome.textContent="Nome completo não corresponde às regras";
+        }
+        else {
+          textoValidacaoNome.textContent="Nome correto!";
+        }
+
+        //validando email
+        var regex = /\S+@\S+\.\S+/;
+        var email = document.getElementById('email').value;
+        var textoValidacaoEmail = document.getElementById('validarEmail');
+
+        var testeEmail = regex.test(email);
+
+        if (testeEmail == false) {
+          textoValidacaoEmail.textContent="Email deve ser válido";
+        }
+        else {
+          textoValidacaoEmail.textContent="Email válido!";
+        }
+
+        //validando senha
+        var regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/;
+        var senha = document.getElementById('senha').value;
+        var textoValidacaoSenha = document.getElementById('validarSenha');
+
+        var testeSenha = regex.test(senha);
+    
+        if (testeSenha == false) {
+          textoValidacaoSenha.textContent="Senha deve ter 8 caracteres, ao menos uma letra minuscula, uma letra maiscula, e um caractere especial";
+        }
+        else {
+          textoValidacaoSenha.textContent="Senha correta!";
+        }
+
+        //validando confirmação senha
+        var textoValidarConfirmacao = document.getElementById('validarConfirmacao')
+        var confirmacao = document.getElementById('confirmacao').value; 
+        if (confirmacao == senha) {
+          textoValidarConfirmacao.textContent="As senhas são iguais";
+        }
+        else{
+          textoValidarConfirmacao.textContent="Confirmação de senha não bate com a senha escolhida"; 
+        }
+
+        //calculando idade
+        var dtNascimento = (document.getElementById('dtNascimento').value);
+        var nascimento = daNascimento.split("/");
+        var dataNascimento = new Date(parseInt(nascimento[2], 10),
+        parseInt(nascimento[1], 10) - 1,
+        parseInt(nascimento[0], 10));
+
+        var diferenca = Date.now() - dataNascimento.getTime();
+        var idade = new Date(diferenca);
+
+        var resultado = Math.abs(idade.getUTCFullYear() -1970);
+
+        //var textoVerificaDtNascimento = document.getElementById('verificaDtNascimento').value;
+        document.getElementById("validarDtNascimento".innerHTML) = resultado;
+    
+
+        }
+
+        
+
+
+        
+
+
+  
+   
+
+    
+
+        
+    </script>
+  </body>
+</html>
